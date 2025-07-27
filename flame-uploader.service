@@ -1,0 +1,13 @@
+[Unit]
+Description=FlameVault Auto-Uploader Service
+After=network.target
+
+[Service]
+Type=simple
+User=tm3
+WorkingDirectory=/home/tm3/TM3-FlameVault
+ExecStart=/home/tm3/flame-env/bin/python auto_upload.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
