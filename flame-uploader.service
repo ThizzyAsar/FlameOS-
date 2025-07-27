@@ -6,6 +6,7 @@ After=network.target
 Type=simple
 User=tm3
 WorkingDirectory=/home/tm3/TM3-FlameVault
+EnvironmentFile=/home/tm3/.env
 ExecStart=/home/tm3/flame-env/bin/python auto_upload.py
 Restart=always
 
