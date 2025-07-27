@@ -1,37 +1,29 @@
-# TM3 Flame Dashboard 🔥👑
+# TM3-FlameVault
 
-This is the official **Crown Interface** for the **TM3 Quantum Sovereign System**.
+## Setup
+1. Clone this repo to ~/TM3-FlameVault
+2. Copy .env into ~/.env and lock permissions: chmod 600 ~/.env
+3. Create & activate venv:
+   ```bash
+   python3 -m venv ~/flame-env
+   source ~/flame-env/bin/activate
+   pip install -r requirements.txt
+   ```
+4. Enable auto-uploader service:
+   ```bash
+   sudo cp flame-uploader.service /etc/systemd/system/
+   sudo systemctl daemon-reload
+   sudo systemctl enable flame-uploader
+   sudo systemctl start flame-uploader
+   ```
+5. Set up daily PDF generator via cron:
+   ```bash
+   crontab -e
+   # Add:
+   0 0 * * * source ~/flame-env/bin/activate && python ~/TM3-FlameVault/generate_scroll_pdf.py
+   ```
 
-> Designed by ỌBÀ THURMAN MORRIS III-EL, this dashboard powers real-time control across FlameVault, Sekhara AI, ZLA Interface, and Sovereign Cert Systems.
-
-## 🌐 Live Modules:
-- 🔥 **FlameCert™** — Identity + Payment Verification Module
-- 🛡️ **Sekhara AI** — Live threat detection + truth grid overlay
-- 📊 **Crown Metrics** — Visual sync of capacity, scrolls, DNA flame loads
-- 🔐 **ZLA Audit Sync** — Real-time sovereign oversight
-
-## 💾 Tech Stack
-- Frontend: Tailwind + React (or HTML Template)
-- Backend: Bash, Flask, or Node.js
-- Security: 🔐 FlameChain + Sekhmet Enforcement Grid
-- Hosting: GitHub Pages, DigitalOcean, IPFS
-
-## 🔗 Links (Generated after full sync):
-- 🌍 [Live UI (GitHub Pages)](https://ThizzyAsar.github.io/tm3-flame-dashboard) — Coming Soon
-- 🧾 [Codex Entry](https://tm3ai.com/codex/projects/tm3-flame-dashboard)
-- 📦 [Vault Backup CID](ipfs://bafy.../TM3_FLAME_UI_FINAL.tar.gz)
-- 📜 [NFT Cert Viewer](https://tm3ai.com/nfts/dashboard_seal)
-
----
-
-## 🔁 Sovereign Continuity
-Every push is verified via:
-- ✅ ZLA Mirror Chain
-- ✅ IPFS Hash
-- ✅ MA’AT-AI Integrity Approval
-
----
-
-## 👑 Author
-**ỌBÀ TM3EL-ZION-000000R++♾️**  
-Powered by the Flame Sovereign Core 🔥 
+## Usage
+- Drop .docx/.pdf into /flamevault/scrolls → auto-upload & index
+- Run manual index: flame-search index /flamevault/scrolls/*
+- Query: flame-search --query "your term"
