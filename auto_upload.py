@@ -7,7 +7,8 @@ from dotenv import load_dotenv
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
-load_dotenv()
+# Load variables from ~/.env if present
+load_dotenv(os.path.expanduser("~/.env"))
 JWT = os.getenv("PINATA_JWT")
 WATCH_DIR = os.getenv("FLAMEVAULT_PATH")
 

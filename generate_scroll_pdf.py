@@ -8,7 +8,8 @@ from fpdf import FPDF
 from docx import Document
 from dotenv import load_dotenv
 
-load_dotenv()
+# Load variables from ~/.env if present
+load_dotenv(os.path.expanduser("~/.env"))
 SCROLL_DIR = os.getenv("FLAMEVAULT_PATH")
 
 if not SCROLL_DIR:
