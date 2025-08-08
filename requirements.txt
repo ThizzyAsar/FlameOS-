@@ -1,0 +1,5 @@
+python-dotenv
+watchdog
+requests
+fpdf
+python-docx
