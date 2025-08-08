@@ -31,3 +31,20 @@ variables (`PINATA_JWT` or `FLAMEVAULT_PATH`) are missing.
 - Drop .docx/.pdf into $FLAMEVAULT_PATH/scrolls → auto-upload & index
 - Run manual index: `flame-search index $FLAMEVAULT_PATH/scrolls/*`
 - Query: `flame-search --query "your term"`
+
+## Documentation
+
+Project documentation is published using GitHub Pages from the `docs/` directory on the main branch.
+
+### Initial Deployment
+
+1. In the repository's **Settings**, navigate to **Pages**.
+2. Under **Build and deployment**, select **Deploy from a branch**.
+3. Choose the `main` branch and `/docs` folder, then save.
+
+### Updating the Site
+
+1. Edit files in the `docs/` directory (for example, `docs/index.md`).
+2. Commit and push the changes to the `main` branch.
+3. GitHub Pages will automatically rebuild the site; the updates will be available at the configured Pages URL.
+
